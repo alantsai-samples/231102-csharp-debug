@@ -1,0 +1,89 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+## ArrayTypeMismatchException
+嘗試在陣列中儲存錯誤類型的元素時，擲回類型 ArrayTypeMismatchException 的例外狀況。 下列範例會在嘗試將數值儲存在字串陣列中時擲回 ArrayTypeMismatchException 例外狀況。
+
+#!csharp
+
+string[] names = { "Dog", "Cat", "Fish" };
+Object[] objs = (Object[])names;
+
+Object obj = (Object)13;
+objs[2] = obj; // ArrayTypeMismatchException occurs
+
+#!markdown
+
+## DivideByZeroException
+嘗試將整數或十進位數除以零時，發生類型 DivideByZeroException 的例外狀況。 下列範例會在執行整數除法時擲回 DivideByZeroException 例外狀況。
+
+#!csharp
+
+int number1 = 3000;
+int number2 = 0;
+Console.WriteLine(number1 / number2); // DivideByZeroException occurs
+
+#!markdown
+
+## FormatException
+引數格式無效時或者複合格式字串格式不正確時，會發生類型 FormatException 的例外狀況。 下列範例會在嘗試將字串轉換成整數時擲回 FormatException 例外狀況。
+
+#!csharp
+
+int valueEntered;
+string userValue = "two";
+valueEntered = int.Parse(userValue); // FormatException occurs
+
+#!markdown
+
+## IndexOutOfRangeException
+嘗試存取索引超出其界限的陣列或集合的元素時擲回類型 IndexOutOfRangeException 的例外狀況。 下列範例會在嘗試將 values1 陣列的最後一個元素指派給 values2 陣列的最後一個元素時擲回 IndexOutOfRangeException 例外狀況。
+
+#!csharp
+
+int[] values1 = { 3, 6, 9, 12, 15, 18, 21 };
+int[] values2 = new int[6];
+
+values2[values1.Length - 1] = values1[values1.Length - 1]; // IndexOutOfRangeException occurs
+
+#!markdown
+
+## InvalidCastException
+嘗試不正確投射或明確轉換時擲回類型 InvalidCastException 的例外狀況。 下列範例會在嘗試將字串類型的 object 投射到 int 變數時擲回 InvalidCastException。
+
+#!csharp
+
+object obj = "This is a string";
+int num = (int)obj;
+
+#!markdown
+
+## NullReferenceException
+嘗試存取其值為 Null 之類型的成員時，擲回類型 NullReferenceException 的例外狀況。 會顯示兩個範例。 在第一個範例中，嘗試存取 Null 陣列的元素時擲回 NullReferenceException。 第二個範例會在嘗試存取 Null 字串的方法時擲回 NullReferenceException。
+
+#!csharp
+
+int[] values = null;
+for (int i = 0; i <= 9; i++)
+    values[i] = i * 2;
+
+#!csharp
+
+string? lowCaseString = null;
+Console.WriteLine(lowCaseString.ToUpper());
+
+#!markdown
+
+## OverflowException
+算術運算嘗試指派超出目標資料類型範圍的結果時，發生類型 OverflowException 的例外狀況。 下列範例會在嘗試將 400 的 decimal 值轉換為 byte 變數時擲回 OverflowException 例外狀況。
+
+#!csharp
+
+decimal x = 400;
+byte i;
+
+i = (byte)x; // OverflowException occurs
+Console.WriteLine(i);
